@@ -1,7 +1,3 @@
-{
-  "whitelisted": [
-    9225166952, 
-  ],
-  "blacklisted": [],
-  "message": "Acceso denegado - No estás en la whitelist de Parra Ninja Hub"
-}
+[
+  9225166952
+]
