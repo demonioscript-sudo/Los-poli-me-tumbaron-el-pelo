@@ -1,0 +1,133 @@
+-- // MASHMELLOW HUB V10 - RAYFIELD UI //
+-- Todas las TPs incluidas + Funciones mejoradas
+
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+local Window = Rayfield:CreateWindow({
+    Name = "Mashmellow Hub V10",
+    LoadingTitle = "Cargando Mashmellow Hub...",
+    LoadingSubtitle = "by Parra",
+    ConfigurationSaving = {
+        Enabled = true,
+        FolderName = "MashmellowHub",
+        FileName = "Config"
+    },
+    Discord = "",
+    KeySystem = false
+})
+
+local CombatTab = Window:CreateTab("Combat", 4483362458)
+local VisualsTab = Window:CreateTab("Visuals", 4483362458)
+local MiscTab = Window:CreateTab("Sistema", 4483362458)
+
+-- ==================== COMBATE ====================
+CombatTab:CreateToggle({
+    Name = "ESG",
+    CurrentValue = false,
+    Flag = "ESG_Toggle",
+    Callback = function(Value)
+        if Value then
+            pcall(function()
+                loadstring(game:HttpGet("https://github.com/demonioscript-sudo/Los-poli-me-tumbaron-el-pelo/raw/refs/heads/main/Mashmellow"))()
+            end)
+            Rayfield:Notify({
+                Title = "ESG",
+                Content = "Cargado correctamente",
+                Duration = 3,
+                Image = 4483362458
+            })
+        end
+    end
+})
+
+-- ==================== VISUALES ====================
+VisualsTab:CreateToggle({
+    Name = "ESP Boxes",
+    CurrentValue = false,
+    Flag = "ESPBoxes",
+    Callback = function(Value)
+        Rayfield:Notify({Title = "ESP Boxes", Content = Value and "Activado" or "Desactivado", Duration = 2})
+    end
+})
+
+VisualsTab:CreateToggle({
+    Name = "Tracers",
+    CurrentValue = false,
+    Flag = "Tracers",
+    Callback = function(Value)
+        Rayfield:Notify({Title = "Tracers", Content = Value and "Activado" or "Desactivado", Duration = 2})
+    end
+})
+
+VisualsTab:CreateToggle({
+    Name = "Name Tags",
+    CurrentValue = false,
+    Flag = "NameTags",
+    Callback = function(Value)
+        Rayfield:Notify({Title = "Name Tags", Content = Value and "Activado" or "Desactivado", Duration = 2})
+    end
+})
+
+-- ==================== SISTEMA - TELEPORTS ====================
+MiscTab:CreateSection("Teleports de Motos / Vehículos")
+
+MiscTab:CreateParagraph({
+    Title = "⚠️ IMPORTANTE",
+    Content = "Debes estar sentado en una moto o vehículo pequeño para que funcione."
+})
+
+local locations = {
+    ["Ubicación 1"]  = Vector3.new(519.27, 3.59, 606.96),
+    ["Ubicación 2"]  = Vector3.new(741.76, 3.71, 433.77),
+    ["Ubicación 3"]  = Vector3.new(217.39, 3.74, -174.63),
+    ["Ubicación 4"]  = Vector3.new(85.18, 3.76, 38.44),
+    ["Ubicación 5"]  = Vector3.new(1016.60, 3.61, -327.68),
+    ["Ubicación 6"]  = Vector3.new(1213.24, 3.36, -47.72),
+    ["Ubicación 7"]  = Vector3.new(1140.63, 10.11, 421.04),
+    ["Ubicación 8"]  = Vector3.new(-463.24, 3.86, 358.16),
+    ["Ubicación 9"]  = Vector3.new(985.76, 10.11, 248.31),
+    ["Ubicación 10"] = Vector3.new(925.26, 10.11, 40.25),
+    ["Ubicación 11"] = Vector3.new(896.53, 10.11, 41.55),
+    ["Ubicación 12"] = Vector3.new(-473.69, 3.86, -460.23),
+    ["Ubicación 13"] = Vector3.new(-769.51, 3.66, -179.22),
+}
+
+for name, pos in pairs(locations) do
+    MiscTab:CreateButton({
+        Name = name,
+        Callback = function()
+            local player = game.Players.LocalPlayer
+            local character = player.Character
+            if not character then return end
+            
+            local humanoid = character:FindFirstChild("Humanoid")
+            local rootpart = character:FindFirstChild("HumanoidRootPart")
+            
+            if humanoid and rootpart and humanoid.SeatPart then
+                rootpart.CFrame = CFrame.new(pos + Vector3.new(0, 6, 0))
+                Rayfield:Notify({
+                    Title = "Teletransportado",
+                    Content = "✅ " .. name,
+                    Duration = 2.5,
+                    Image = 4483362458
+                })
+            else
+                Rayfield:Notify({
+                    Title = "Error",
+                    Content = "❌ Debes estar montado en una moto o vehículo",
+                    Duration = 4
+                })
+            end
+        end
+    })
+end
+
+-- Final
+Rayfield:Notify({
+    Title = "Mashmellow Hub V10",
+    Content = "Cargado correctamente | Presiona RightShift para abrir",
+    Duration = 6,
+    Image = 4483362458
+})
+
+Analiza
