@@ -239,7 +239,7 @@ local function StartHub()
             end
 
             InfoLabel.Text = string.format([[
-  [ ACUSADO MASHMELLOW HUB ]
+  [ PARRA-MASHEMELLOW ]
   DOMINANDO EL SERVIDOR...
   
   PRODUCTOS:
