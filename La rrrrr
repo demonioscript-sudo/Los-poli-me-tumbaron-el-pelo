@@ -13,9 +13,9 @@ local Window = Rayfield:CreateWindow({
     Discord = "",
     KeySystem = true,
     KeySettings = {
-        Title = "🔑 Key System",
+        Title = "👑 Key System",
         Subtitle = "Mashmellow Hub",
-        Note = "La KEY es: MKS-ON-TOP",
+        Note = "Pon La Key:o no entras",
         FileName = "MashmellowKey",
         SaveKey = true,
         GrabKeyFromSite = false,
@@ -102,8 +102,8 @@ CombatTab:CreateToggle({
 MiscTab:CreateSection("Teleports de Motos / Vehículos")
 
 MiscTab:CreateParagraph({
-    Title = "⚠️ IMPORTANTE",
-    Content = "Debes estar sentado en una moto.\n\nUsando modo stealth (delays random + hooks)."
+    Title = "⚠️ LEE CULIADO",
+    Content = "Debes estar sentado en una moto para qbfuncione ."
 })
 
 local locations = {
@@ -157,7 +157,7 @@ for name, pos in pairs(locations) do
             else
                 Rayfield:Notify({
                     Title = "Error",
-                    Content = "❌ Debes estar montado en una moto",
+                    Content = "❌ Debes estar montado en una moto q no lees",
                     Duration = 4
                 })
             end
